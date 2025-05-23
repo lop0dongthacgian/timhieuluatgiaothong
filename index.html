@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<title>Tìm hiểu Luật Giao thông</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <audio id="bgMusic" src="music/nhac.mp3" loop autoplay></audio>
+
+  <div class="container">
+    <header class="mainHeader">
+      <h1>Tìm hiểu Luật Giao thông</h1>
+      <div class="headerActions">
+        <button id="toggleMusicBtn" class="actionBtn" aria-label="Bật nhạc nền" title="Bật nhạc">
+          <svg id="soundWaves" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+            <path d="M3 10v4h3l4 4V6l-4 4H3zm11 0c0-1.77 1.02-3.29 2.5-4.03v8.05c-1.48-.73-2.5-2.25-2.5-4.02zm-.5 4.5v-5c2.76 0 5 2.24 5 5s-2.24 5-5 5v-5z"/>
+          </svg>
+          <svg id="muteCross1" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+            <path d="M3 10v4h3l4 4V6l-4 4H3zm14 2c0-1.77-1.02-3.29-2.5-4.03v2.06l2.5 2.52c.0-.01.0-.01.0-.01zm0 4.03l-1.59-1.61c.84-.53 1.59-1.27 2.1-2.14l.01-.01.01-.01c.21-.36.0-.86-.5-.86h-2.51l-4.52-4.52v-.01c-.13-.13-.29-.26-.46-.37L10 6.64l.01.01.01-.01-.73-.73-.01-.01L6 3H3v4h3l4 4L7 16H3v4h4l5-5 7 7c.4-.4.4-1 .0-.4l-7-7z"/>
+          </svg>
+          <svg id="muteCross2" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+            <path d="M19 12c0-1.77-1.02-3.29-2.5-4.03v2.06l2.5 2.52c.0-.01.0-.01.0-.01zM17 16.03l-1.59-1.61c.84-.53 1.59-1.27 2.1-2.14l.01-.01.01-.01c.21-.36.0-.86-.5-.86h-2.51l-4.52-4.52v-.01c-.13-.13-.29-.26-.46-.37L10 6.64l.01.01.01-.01-.73-.73-.01-.01L6 3H3v4h3l4 4L7 16H3v4h4l5-5 7 7c.4-.4.4-1 .0-.4l-7-7z"/>
+          </svg>
+        </button>
+        <button id="toggleDarkModeBtn" class="actionBtn" aria-label="Chế độ tối" title="Chuyển sang chế độ tối">
+          <svg id="sun" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 2L12 4M12 20L12 22M20 12L22 12M2 12L4 12M17.65 6.35L19.07 4.93M4.93 19.07L6.35 17.65M17.65 17.65L19.07 19.07M4.93 4.93L6.35 6.35"/>
+          </svg>
+          <svg id="sunRays" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L12 4M12 20L12 22M20 12L22 12M2 12L4 12M17.65 6.35L19.07 4.93M4.93 19.07L6.35 17.65M17.65 17.65L19.07 19.07M4.93 4.93L6.35 6.35"/>
+          </svg>
+          <svg id="moon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+            <path d="M12.3 4.72a9.002 9.002 0 00-.78 17.15c-4.41-.68-7.91-4.18-8.59-8.59A9.002 9.002 0 0012.3 4.72z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <nav class="mainMenu">
+      <button class="menuBtn" data-target="signsSection">
+        <span class="icon">🚦</span>
+        <span class="text">Biển Báo Giao Thông</span>
+      </button>
+      <button class="menuBtn" data-target="rulesSection">
+        <span class="icon">📜</span>
+        <span class="text">Luật Giao Thông</span>
+      </button>
+      <button class="menuBtn" data-target="quizSection">
+        <span class="icon">❓</span>
+        <span class="text">Trắc Nghiệm</span>
+      </button>
+      <button class="menuBtn" data-target="tipsSection">
+        <span class="icon">💡</span>
+        <span class="text">Mẹo Giao Thông</span>
+      </button>
+      <button class="menuBtn" id="exitBtn">
+        <span class="icon">🚪</span>
+        <span class="text">Thoát</span>
+      </button>
+    </nav>
+
+    <section id="signsSection" class="contentSection">
+      <button class="closeBtn" aria-label="Đóng phần Biển Báo Giao Thông">✖</button>
+      <h2>Biển Báo Giao Thông</h2>
+      <div class="signCategories">
+        <button class="signCategoryBtn active" data-category="all">Tất cả</button>
+        <button class="signCategoryBtn" data-category="danger">Nguy hiểm</button>
+        <button class="signCategoryBtn" data-category="prohibition">Cấm</button>
+        <button class="signCategoryBtn" data-category="command">Hiệu lệnh</button>
+        <button class="signCategoryBtn" data-category="indicator">Chỉ dẫn</button>
+      </div>
+      <div class="signsGrid">
+        <div class="signCard" data-category="danger" data-img="img/signs/bien_nguy_hiem_co_dai.jpg" data-desc="Biển báo nguy hiểm, có dải phân cách">
+          <img src="img/signs/bien_nguy_hiem_co_dai.jpg" alt="Biển báo nguy hiểm, có dải phân cách" />
+          <p>Nguy hiểm, có dải phân cách</p>
+        </div>
+        <div class="signCard" data-category="prohibition" data-img="img/signs/bien_cam_di_nguoc_chieu.jpg" data-desc="Biển báo cấm đi ngược chiều">
+          <img src="img/signs/bien_cam_di_nguoc_chieu.jpg" alt="Biển báo cấm đi ngược chiều" />
+          <p>Cấm đi ngược chiều</p>
+        </div>
+        <div class="signCard" data-category="command" data-img="img/signs/bien_hieu_lenh_di_thang.jpg" data-desc="Biển báo hiệu lệnh đi thẳng">
+          <img src="img/signs/bien_hieu_lenh_di_thang.jpg" alt="Biển báo hiệu lệnh đi thẳng" />
+          <p>Hiệu lệnh đi thẳng</p>
+        </div>
+        <div class="signCard" data-category="indicator" data-img="img/signs/bien_chi_dan_duong_uu_tien.jpg" data-desc="Biển báo chỉ dẫn đường ưu tiên">
+          <img src="img/signs/bien_chi_dan_duong_uu_tien.jpg" alt="Biển báo chỉ dẫn đường ưu tiên" />
+          <p>Chỉ dẫn đường ưu tiên</p>
+        </div>
+        <div class="signCard" data-category="prohibition" data-img="img/signs/cam_oto.jpg" data-desc="Biển báo cấm ô tô">
+          <img src="img/signs/cam_oto.jpg" alt="Biển báo cấm ô tô" />
+          <p>Cấm ô tô</p>
+        </div>
+        <div class="signCard" data-category="prohibition" data-img="img/signs/cam_moto.jpg" data-desc="Biển báo cấm mô tô">
+          <img src="img/signs/cam_moto.jpg" alt="Biển báo cấm mô tô" />
+          <p>Cấm mô tô</p>
+        </div>
+        <div class="signCard" data-category="prohibition" data-img="img/signs/cam_xe_tai.jpg" data-desc="Biển báo cấm xe tải">
+          <img src="img/signs/cam_xe_tai.jpg" alt="Biển báo cấm xe tải" />
+          <p>Cấm xe tải</p>
+        </div>
+        <div class="signCard" data-category="prohibition" data-img="img/signs/cam_dung_do.jpg" data-desc="Biển báo cấm dừng đỗ">
+          <img src="img/signs/cam_dung_do.jpg" alt="Biển báo cấm dừng đỗ" />
+          <p>Cấm dừng đỗ</p>
+        </div>
+        <div class="signCard" data-category="prohibition" data-img="img/signs/cam_re_trai.jpg" data-desc="Biển báo cấm rẽ trái">
+          <img src="img/signs/cam_re_trai.jpg" alt="Biển báo cấm rẽ trái" />
+          <p>Cấm rẽ trái</p>
+        </div>
+        <div class="signCard" data-category="prohibition" data-img="img/signs/cam_re_phai.jpg" data-desc="Biển báo cấm rẽ phải">
+          <img src="img/signs/cam_re_phai.jpg" alt="Biển báo cấm rẽ phải" />
+          <p>Cấm rẽ phải</p>
+        </div>
+        <div class="signCard" data-category="danger" data-img="img/signs/nguy_hiem_giao_nhau.jpg" data-desc="Biển báo nguy hiểm giao nhau">
+          <img src="img/signs/nguy_hiem_giao_nhau.jpg" alt="Biển báo nguy hiểm giao nhau" />
+          <p>Nguy hiểm giao nhau</p>
+        </div>
+        <div class="signCard" data-category="danger" data-img="img/signs/nguy_hiem_tre_em.jpg" data-desc="Biển báo nguy hiểm trẻ em">
+          <img src="img/signs/nguy_hiem_tre_em.jpg" alt="Biển báo nguy hiểm trẻ em" />
+          <p>Nguy hiểm trẻ em</p>
+        </div>
+        <div class="signCard" data-category="danger" data-img="img/signs/nguy_hiem_doc_nghieng.jpg" data-desc="Biển báo nguy hiểm dốc nghiêng">
+          <img src="img/signs/nguy_hiem_doc_nghieng.jpg" alt="Biển báo nguy hiểm dốc nghiêng" />
+          <p>Nguy hiểm dốc nghiêng</p>
+        </div>
+        <div class="signCard" data-category="command" data-img="img/signs/hieu_lenh_re_phai.jpg" data-desc="Biển báo hiệu lệnh rẽ phải">
+          <img src="img/signs/hieu_lenh_re_phai.jpg" alt="Biển báo hiệu lệnh rẽ phải" />
+          <p>Hiệu lệnh rẽ phải</p>
+        </div>
+        <div class="signCard" data-category="command" data-img="img/signs/hieu_lenh_re_trai.jpg" data-desc="Biển báo hiệu lệnh rẽ trái">
+          <img src="img/signs/hieu_lenh_re_trai.jpg" alt="Biển báo hiệu lệnh rẽ trái" />
+          <p>Hiệu lệnh rẽ trái</p>
+        </div>
+        <div class="signCard" data-category="command" data-img="img/signs/hieu_lenh_vong_xuyen.jpg" data-desc="Biển báo hiệu lệnh vòng xuyến">
+          <img src="img/signs/hieu_lenh_vong_xuyen.jpg" alt="Biển báo hiệu lệnh vòng xuyến" />
+          <p>Hiệu lệnh vòng xuyến</p>
+        </div>
+        <div class="signCard" data-category="indicator" data-img="img/signs/chi_dan_tram_xang.jpg" data-desc="Biển báo chỉ dẫn trạm xăng">
+          <img src="img/signs/chi_dan_tram_xang.jpg" alt="Biển báo chỉ dẫn trạm xăng" />
+          <p>Chỉ dẫn trạm xăng</p>
+        </div>
+        <div class="signCard" data-category="indicator" data-img="img/signs/chi_dan_benh_vien.jpg" data-desc="Biển báo chỉ dẫn bệnh viện">
+          <img src="img/signs/chi_dan_benh_vien.jpg" alt="Biển báo chỉ dẫn bệnh viện" />
+          <p>Chỉ dẫn bệnh viện</p>
+        </div>
+        <div class="signCard" data-category="indicator" data-img="img/signs/chi_dan_cho_do_xe.jpg" data-desc="Biển báo chỉ dẫn chỗ đỗ xe">
+          <img src="img/signs/chi_dan_cho_do_xe.jpg" alt="Biển báo chỉ dẫn chỗ đỗ xe" />
+          <p>Chỉ dẫn chỗ đỗ xe</p>
+        </div>
+        <div class="signCard" data-category="indicator" data-img="img/signs/chi_dan_lan_duong.jpg" data-desc="Biển báo chỉ dẫn làn đường">
+          <img src="img/signs/chi_dan_lan_duong.jpg" alt="Biển báo chỉ dẫn làn đường" />
+          <p>Chỉ dẫn làn đường</p>
+        </div>
+      </div>
+    </section>
+
+    <div id="signModal" class="signModal" aria-modal="true" role="dialog" tabindex="-1">
+      <div class="signModalContent">
+        <button class="closeModal" aria-label="Đóng chi tiết biển báo">✖</button>
+        <img id="modalImg" src="" alt="Hình ảnh biển báo" />
+        <p id="modalDesc"></p>
+      </div>
+    </div>
+
+
+    <section id="rulesSection" class="contentSection">
+
+<button class="closeBtn" aria-label="Đóng phần Luật Giao Thông">✖</button>
+<h2>Luật Trật tự, An toàn Giao thông Đường bộ (Luật 36/2024/QH15)</h2>
+<div class="content">
+  <p>Luật Trật tự, an toàn giao thông đường bộ 2024 (Luật số 36/2024/QH15) có hiệu lực từ 01/01/2025, thay thế hoàn toàn Luật Giao thông đường bộ 2008. Dưới đây là bản tóm tắt nội dung chính yếu của luật mới:</p>
+
+  <h3>1. Quy tắc chung và Giải thích từ ngữ</h3>
+  <ul>
+    <li><strong>Phạm vi điều chỉnh:</strong> Quy định về trật tự, an toàn giao thông đường bộ, trách nhiệm của tổ chức, cá nhân.</li>
+    <li><strong>Người tham gia giao thông:</strong> Bao gồm người điều khiển, người ngồi trên phương tiện và người đi bộ.</li>
+    <li><strong>Phương tiện giao thông:</strong> Gồm cơ giới, xe máy chuyên dùng, thô sơ.</li>
+    <li><strong>Khái niệm phần đường, làn đường, vạch kẻ:</strong> Được định nghĩa rõ để áp dụng đồng bộ trên toàn quốc.</li>
+    <li><strong>Nguyên tắc:</strong> Tôn trọng quyền ưu tiên; tuân thủ tín hiệu; không gây nguy hiểm hoặc cản trở giao thông.</li>
+  </ul>
+
+  <h3>2. Hệ thống báo hiệu giao thông</h3>
+  <ul>
+    <li>Gồm: đèn tín hiệu, biển báo, vạch kẻ đường, người điều khiển giao thông.</li>
+    <li>Bổ sung biển báo điện tử, biển cảnh báo tốc độ thay đổi.</li>
+  </ul>
+
+  <h3>3. Quy tắc giao thông</h3>
+  <h4>a. Tốc độ và khoảng cách</h4>
+  <ul>
+    <li>Tốc độ phụ thuộc loại đường, khu vực và điều kiện thời tiết.</li>
+    <li>Khoảng cách tối thiểu theo quy định cụ thể từng loại đường.</li>
+  </ul>
+
+  <h4>b. Làn đường, chuyển làn, vượt xe</h4>
+  <ul>
+    <li>Không được chuyển làn liên tục, đột ngột.</li>
+    <li>Vượt xe đúng nơi quy định, có tín hiệu báo, đủ điều kiện an toàn.</li>
+  </ul>
+
+  <h4>c. Dừng, đỗ xe</h4>
+  <ul>
+    <li>Không đỗ ngược chiều, không đỗ ở nơi cấm, trước cổng cơ quan, bệnh viện giờ cao điểm.</li>
+  </ul>
+
+  <h4>d. Tín hiệu và quyền ưu tiên</h4>
+  <ul>
+    <li>Thứ tự ưu tiên: Người điều khiển giao thông → Đèn → Biển báo → Vạch đường.</li>
+    <li>Phải nhường đường cho người khuyết tật, trẻ em.</li>
+  </ul>
+
+  <h3>4. Hành vi bị nghiêm cấm</h3>
+  <ul>
+    <li>Uống rượu, bia khi lái xe.</li>
+    <li>Dùng điện thoại, livestream khi điều khiển xe.</li>
+    <li>Che biển số, thay đổi kết cấu xe sai quy định.</li>
+  </ul>
+
+  <h3>5. Điều kiện người lái và phương tiện</h3>
+  <ul>
+    <li>Người lái xe đủ tuổi, sức khỏe, có GPLX đúng loại.</li>
+    <li>Xe phải gắn thiết bị giám sát hành trình, đèn, phanh, gương đủ chuẩn.</li>
+  </ul>
+
+  <h3>6. Trách nhiệm của cơ quan</h3>
+  <ul>
+    <li>UBND, CSGT tổ chức giao thông khoa học, ứng dụng công nghệ xử phạt nguội.</li>
+  </ul>
+
+  <p><strong>Lưu ý:</strong> Đây chỉ là tóm tắt. Xem toàn văn luật tại <a href="https://xaydungchinhsach.chinhphu.vn/toan-van-luat-trat-tu-an-toan-giao-thong-duong-bo-119240909105718285.htm" target="_blank">chinhphu.vn</a>.</p>
+</div>
+
+</section>
+
+    <section id="quizSection" class="contentSection">
+      <button class="closeBtn" aria-label="Đóng phần Trắc Nghiệm">✖</button>
+      <h2>Trắc Nghiệm Luật Giao Thông</h2>
+      <div class="quizContainer">
+        <p class="quizQuestion">Câu hỏi sẽ xuất hiện ở đây.</p>
+        <ul class="quizAnswers">
+          </ul>
+        <div class="quizControls">
+          <p>Điểm của bạn: <span id="score">0</span> / <span id="total">0</span></p>
+          <button id="btnRestart">Chơi lại</button>
+          <button id="btnHelp">Trợ giúp</button>
+          <button id="btnExitQuiz">Thoát Trắc Nghiệm</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="tipsSection" class="contentSection">
+      <button class="closeBtn" aria-label="Đóng phần Mẹo Giao Thông">✖</button>
+      <h2>Mẹo Giao Thông An Toàn</h2>
+      <div class="content"> <ol>
+          <li><strong>Luôn đội mũ bảo hiểm hoặc thắt dây an toàn:</strong> Đảm bảo an toàn cho bản thân là ưu tiên hàng đầu.</li>
+          <li><strong>Giữ khoảng cách an toàn:</strong> Giúp bạn có đủ thời gian phản ứng trong các tình huống bất ngờ.</li>
+          <li><strong>Không sử dụng điện thoại khi lái xe:</strong> Phân tâm là nguyên nhân hàng đầu gây tai nạn.</li>
+          <li><strong>Không lái xe khi đã uống rượu bia:</strong> Rượu bia làm giảm khả năng phản xạ và nhận thức.</li>
+          <li><strong>Tuân thủ tốc độ quy định:</strong> Đi đúng tốc độ giúp bạn kiểm soát phương tiện tốt hơn.</li>
+          <li><strong>Quan sát kỹ khi chuyển làn hoặc rẽ:</strong> Luôn kiểm tra gương chiếu hậu và điểm mù.</li>
+          <li><strong>Sử dụng đèn tín hiệu:</strong> Báo hiệu ý định của bạn cho các phương tiện khác.</li>
+          <li><strong>Hiểu rõ các biển báo giao thông:</strong> Nắm vững ý nghĩa biển báo để tuân thủ luật.</li>
+          <li><strong>Kiểm tra phương tiện định kỳ:</strong> Đảm bảo xe luôn trong tình trạng tốt nhất.</li>
+          <li><strong>Giữ bình tĩnh:</strong> Hạn chế căng thẳng và giữ thái độ ôn hòa khi tham gia giao thông.</li>
+        </ol>
+        <p>Hãy luôn là người tham gia giao thông văn minh và an toàn!</p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="js/questions.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
